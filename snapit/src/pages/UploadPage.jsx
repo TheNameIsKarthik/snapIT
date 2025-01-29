@@ -5,6 +5,7 @@ import ImagePreview from "../components/ImagePreview";
 import RatingResult from "../components/RatingResult";
 import Header from "../components/Header";
 
+const backendUrl = "https://snapit-ia9t.onrender.com";
 function UploadPage() {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -49,7 +50,7 @@ function UploadPage() {
     formData.append("image", image);
 
     try {
-      const response = await axios.post("http://localhost:3001/api/analyze", formData, {
+      const response = await axios.post(`${backendUrl}/api/analyze`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResult(response.data);

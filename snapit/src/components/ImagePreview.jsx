@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"; // Import PropTypes for validation
+import PropTypes from "prop-types";
 
 const ImagePreview = ({ src }) => {
   return (
@@ -10,7 +10,7 @@ const ImagePreview = ({ src }) => {
 
 // PropTypes validation
 ImagePreview.propTypes = {
-  src: PropTypes.string.isRequired, // The src prop is required and should be a string
+  src: PropTypes.string.isRequired,
 };
 
 export default ImagePreview;

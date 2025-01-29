@@ -4,6 +4,7 @@ import { FaSpinner } from "react-icons/fa";
 import Header from "../components/Header";
 import RatingResult from "../components/RatingResult";
 
+const backendUrl = "https://snapit-ia9t.onrender.com";
 const CameraPage = () => {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -86,7 +87,7 @@ const CameraPage = () => {
     formData.append("image", blob, "captured-image.jpeg");
 
     try {
-      const response = await axios.post("http://localhost:3001/api/analyze", formData, {
+      const response = await axios.post(`${backendUrl}/api/analyze`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

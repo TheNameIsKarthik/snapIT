@@ -58,7 +58,7 @@ RatingResult.propTypes = {
   result: PropTypes.shape({
     success: PropTypes.bool.isRequired,
     rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    reason: PropTypes.arrayOf(PropTypes.string), // Reason is an array of strings now
+    reason: PropTypes.arrayOf(PropTypes.string),
     expiry: PropTypes.string,
     alternatives: PropTypes.arrayOf(PropTypes.string),
     error: PropTypes.string,
