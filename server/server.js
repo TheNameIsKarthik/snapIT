@@ -122,6 +122,7 @@ async function getGeminiAnalysis(fileUri) {
 
   let responseText = result.response.text();
   responseText = responseText.slice(7, -4).trim();
+  console.log(responseText);
 
   try {
     const responseJson = JSON.parse(responseText);
