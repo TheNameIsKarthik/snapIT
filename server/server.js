@@ -27,6 +27,10 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const fileManager = new GoogleAIFileManager(GEMINI_API_KEY);
 
+app.get("/api/analyze", async (req, res) => {
+  res.send("Api is available!");
+});
+
 app.post("/api/analyze", upload.single("image"), async (req, res) => {
   try {
     if (!req.file) {
@@ -116,21 +120,19 @@ async function getGeminiAnalysis(fileUri) {
     },
   ]);
 
-  // Extract the response text
   let responseText = result.response.text();
-  responseText = responseText.slice(7, -4).trim(); // Remove "json" at the start and "\n" at the end
+  responseText = responseText.slice(7, -4).trim();
 
   try {
     const responseJson = JSON.parse(responseText);
 
     if (responseJson && responseJson.rating !== undefined) {
-      // Extract rating and reasons (if present) from the response
       const rating = responseJson.rating;
-      const reason = responseJson.reason; // Assuming "reason" is the key for harmful ingredients and explanations
-      const expiry = responseJson.expiry; // Default to "Not specified" if expiry is missing
-      const alternatives = responseJson.alternatives || "Not Applicable"; // Default to an empty array if no alternatives are provided
+      const reason = responseJson.reason;
+      const expiry = responseJson.expiry;
+      const alternatives = responseJson.alternatives || "Not Applicable";
 
-      return { success: true, rating, reason, expiry, alternatives }; // Return the cleaned and structured response
+      return { success: true, rating, reason, expiry, alternatives };
     }
 
     return { success: false, response: "No ingredients list found in the image." };
