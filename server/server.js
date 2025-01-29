@@ -8,10 +8,17 @@ const tmp = require("tmp");
 require("dotenv").config();
 
 const app = express();
-const port = 3001;
+const port = process.env.port || 3001;
 
 app.use(cors());
 app.use(express.json());
+const corsOptions = {
+  origin: "https://snap-it-xi.vercel.app/",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
