@@ -13,7 +13,7 @@ const port = process.env.port || 3001;
 app.use(cors());
 app.use(express.json());
 const corsOptions = {
-  origin: "https://snap-it-xi.vercel.app/",
+  origin: "https://snap-it-xi.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
