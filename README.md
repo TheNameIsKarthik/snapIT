@@ -60,4 +60,5 @@ This project is licensed under the MIT License.
 ## 🖼️ Screenshots:  
 ![Home Page](snapit/src/assets/home.png)
 ![Upload Page](snapit/src/assets/upload.png)
-![Result Page](snapit/src/assets/result.png)
+![Result Page](snapit/src/assets/results.png)
+
