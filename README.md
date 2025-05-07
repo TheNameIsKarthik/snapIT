@@ -58,6 +58,6 @@ This project is licensed under the MIT License.
 🔗 Live App: [Deployment](https://snap-it-xi.vercel.app/)
 
 ## 🖼️ Screenshots:  
-![Home Page](client/src/assets/home.png)
-![Upload Page](client/src/assets/upload.png)
-![Result Page](client/src/assets/result.png)
+![Home Page](snapit/src/assets/home.png)
+![Upload Page](snapit/src/assets/upload.png)
+![Result Page](snapit/src/assets/result.png)
